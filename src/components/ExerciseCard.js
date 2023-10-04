@@ -20,14 +20,25 @@ const ExerciseCard = ({exercise}) => {
             <Button sx={{ 
                 ml: '21px', 
                 color: '#FFF', 
-                background: '#FFA9A9',
+                background: '#FCC757',
                 fontSize: '14px',
                 borderRadius: '20px',
                 textTransform: 'capitalize'
                 }}>
-                {exercise.targetMuscle}
+                {exercise.target}
             </Button>
         </Stack>
+        <Typography
+            ml="21px" 
+            fontSize="22px"
+            color="#000" 
+            fontWeight="bold" 
+            mt="11px"
+            pb="10px"
+            textTransform="capitalize"
+        >
+            {exercise.name}
+        </Typography>
     </Link>
   )
 }
