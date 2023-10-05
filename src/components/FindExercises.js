@@ -1,27 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Button, Stack, TextField, Typography } from '@mui/material';
-import { fetchWger, fetchData } from '../utils/fetchData';
+import { fetchWger } from '../utils/fetchData';
 import HorizontalScrollbar from './HorizontalScrollbar';
 
 
 const FindExercises = ({ setExercises, bodyPart, setBodyPart }) => {
     const [search, setSearch] = useState('');
     const [bodyParts, setBodyParts] = useState([]);
+    const [bodyPartId, setBodyPartId] = useState([]);
 
     useEffect(() => {
         const fetchExercisesData = async () => {
           const bodyPartsData = await fetchWger('https://wger.de/api/v2/exercisebaseinfo');
-    
-          setBodyParts(['all', ...bodyPartsData.category]);
+          setBodyPartId([...bodyPartsData.results.category.id]);
+          setBodyParts(['all', ...bodyPartsData.results.category.name]);
         };
-    
+        
         fetchExercisesData();
       }, []);
   
 
   const handleSearch = async () => {
     if (search) {
-      const exercisesData = await fetchWger('https://wger.de/api/v2/exercisebaseinfo');
+      const exercisesData = await fetchWger(`https://wger.de/api/v2/exercise/search/?language=en&term=${search}`);
 
       const searchedExercises = exercisesData.filter(
         (exercise) => exercise.name.toLowerCase().includes(search)

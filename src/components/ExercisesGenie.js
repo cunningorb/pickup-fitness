@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Pagination from '@mui/material/Pagination';
 import { Box, Stack, Typography } from '@mui/material';
 
-import { fetchWger, fetchData } from '../utils/fetchData';
+import { fetchWger } from '../utils/fetchData';
 import ExerciseCard from './ExerciseCard';
 import Loader from './Loader';
 
-const ExerciseGenie = ({ exercises, setExercises, bodyPart }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [exercisesPerPage] = useState(6);
+const ExerciseGenie = ({ exercises, setExercises, bodyPart, bodyPartId }) => {
+  const [currentPage, setCurrentPage] = useState(2);
+  const [exercisesPerPage] = useState(4);
 
   useEffect(() => {
     const fetchExercisesData = async () => {
@@ -17,10 +17,10 @@ const ExerciseGenie = ({ exercises, setExercises, bodyPart }) => {
       if (bodyPart === 'all') {
         exercisesData = await fetchWger('https://wger.de/api/v2/exercisebaseinfo');
       } else {
-        exercisesData = await fetchWger(`https://wger.de/api/v2/exercisecategory/${bodyPart}`);
+        exercisesData = await fetchWger(`https://wger.de/api/v2/exercisebaseinfo?category=${bodyPartId}`);
       }
 
-      setExercises(exercisesData);
+      setExercises(exercisesData.results);
     };
 
     fetchExercisesData();
