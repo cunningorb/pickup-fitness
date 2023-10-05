@@ -15,6 +15,17 @@ export const youtubeOptions = {
   }
 };
 
+export const wgerOptions = {
+  method: 'GET',
+};
+
+export const fetchWger = async (url) => {
+  const res = await fetch(url);
+  const data = await res.json();
+  console.log(data);
+    return data;
+};
+
 export const fetchData = async (url, options) => {
   const res = await fetch(url, options);
   const data = await res.json();
