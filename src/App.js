@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ExerciseList from './pages/ExerciseList';
+import TestApi from './components/TestApi';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/exercise/:id" element={<ExerciseDetail />} />
         <Route path="/ExerciseList" element={<ExerciseList />} /> 
+        <Route path="/Test" element={<TestApi />} /> 
       </Routes>
       <Footer />
     </Box>

@@ -20,6 +20,7 @@ const Navbar = () => (
       <Link to="/" style={{ textDecoration: 'none', color: '#3A1212', borderBottom: '3px solid #FF2625' }}>Home</Link>
       <a href="#exercises" style={{ textDecoration: 'none', color: '#3A1212', borderBottom: '3px solid #FFF' }}>Exercises</a>
       <Link to="/ExerciseList" style={{ textDecoration: 'none', color: '#3A1212', borderBottom: '3px solid #FFF' }}>Exercise List</Link>
+      <Link to="/Test" style={{ textDecoration: 'none', color: '#3A1212', borderBottom: '3px solid #FFF' }}>New Api</Link>
     </Stack>
   </Stack>
 );

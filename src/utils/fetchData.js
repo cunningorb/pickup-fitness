@@ -19,6 +19,13 @@ export const wgerOptions = {
   method: 'GET',
 };
 
+export const fetchWgerCategories = async (url) => {
+  const res = await fetch(url);
+  const data = await res.json();
+  console.log([...data.results.category.id]);
+  return [...data.results.category.id];
+}
+
 export const fetchWger = async (url) => {
   const res = await fetch(url);
   const data = await res.json();
