@@ -11,7 +11,7 @@ const TestApi = () => {
         <span style={{ color: '#FF2625', textTransform: 'capitalize' }}>What have we here</span>
         </Typography>
         <Stack direction="row" sx={{ gap: { lg: '107px', xs: '50px' } }} flexWrap="wrap" justifyContent="center">
-            { fetchWgerCategories() }
+            { }
         </Stack>
     </Box>
   )
